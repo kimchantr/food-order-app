@@ -1,8 +1,9 @@
+import { CartList } from 'components/cart'
 import { Header } from 'components/layout'
 import React, { useState } from 'react'
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false)
+  const [cartIsShown, setCartIsShown] = useState(true)
 
   const showCartHandler = () => {
     setCartIsShown(true)
@@ -14,6 +15,8 @@ function App() {
 
   return (
     <>
+      {cartIsShown && <CartList onClose={hideCartHandler} />}
+
       <Header onShowCart={showCartHandler} />
     </>
   )
